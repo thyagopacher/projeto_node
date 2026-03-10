@@ -1,4 +1,6 @@
 const express = require('express');
+const livros = require('./livros');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -9,9 +11,9 @@ const log = (req, res, next) => {
 };
 
 app.use(express.json());
+app.use('/livros', livros);
 
-/** declaração de rotas */
-
+/** declaração de rotas - diretamente*/
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
